@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
-        S3_BUCKET = 'awsdevops-microservices-frontend-1'
-        CLOUDFRONT_DISTRIBUTION_ID = 'E3R9SM6W0RJLEU'
+        S3_BUCKET = 'devop-project-realtime12345'
+        CLOUDFRONT_DISTRIBUTION_ID = 'E1J15SVYIL66A2'
     }
 
     stages {
@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Indyalamounika/frontendproject.git'
+                    url: 'https://github.com/Kubernaik/Frontend-App.git'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-credentials'
+                    credentialsId: 'AWS-Credentails'
                 ]]) {
                     sh '''
                       aws s3 sync build/ s3://$S3_BUCKET --delete
