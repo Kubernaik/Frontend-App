@@ -2,15 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AWS Microservices App</title>
+  <title>AWS DevOps Microservices Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0F172A;
+      color: #F1F5F9;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #111827;
+      padding: 20px;
+      margin: 0;
+      color: #FF9900;
+      border-bottom: 2px solid #334155;
+    }
+
+    button {
+      margin: 20px 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #232F3E;
+      color: #F1F5F9;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #FF9900;
+      color: #111827;
+    }
+
+    pre {
+      margin: 30px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+      background-color: #1E293B;
+      border-radius: 10px;
+      text-align: left;
+      overflow-x: auto;
+      border: 1px solid #334155;
+      color: #22C55E;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>AWS DevOps Microservices frontend project</h1>
+  <h1>AWS DevOps Microservices Dashboard</h1>
 
   <button onclick="loadUsers()">Load Users</button>
   <button onclick="loadOrders()">Load Orders</button>
 
-  <pre id="result"></pre>
+  <pre id="result">System Ready...</pre>
 
   <script src="../src/app.js"></script>
 </body>
