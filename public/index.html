@@ -1,67 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AWS DevOps Microservices Dashboard</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AWS DevOps Microservices Dashboard</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0F172A;
-      color: #F1F5F9;
-      text-align: center;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #0F172A, #1E293B, #111827, #0F2027);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #F1F5F9;
+}
 
-    h1 {
-      background-color: #111827;
-      padding: 20px;
-      margin: 0;
-      color: #FF9900;
-      border-bottom: 2px solid #334155;
-    }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-    button {
-      margin: 20px 10px;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #232F3E;
-      color: #F1F5F9;
-      transition: 0.3s ease;
-    }
+header {
+    padding: 20px;
+    background: rgba(17, 24, 39, 0.9);
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #FF9900;
+    border-bottom: 2px solid #334155;
+}
 
-    button:hover {
-      background-color: #FF9900;
-      color: #111827;
-    }
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
 
-    pre {
-      margin: 30px auto;
-      padding: 20px;
-      width: 80%;
-      max-width: 800px;
-      background-color: #1E293B;
-      border-radius: 10px;
-      text-align: left;
-      overflow-x: auto;
-      border: 1px solid #334155;
-      color: #22C55E;
-    }
-  </style>
+.card {
+    background: rgba(30, 41, 59, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #FF9900;
+}
+
+.service-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.status {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.running { color: #22C55E; }
+.degraded { color: #FACC15; }
+.down { color: #EF4444; }
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #232F3E;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #FF9900;
+    color: #111827;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #94A3B8;
+    border-top: 1px solid #334155;
+}
+</style>
 </head>
 
 <body>
-  <h1>AWS DevOps Microservices Dashboard</h1>
 
-  <button onclick="loadUsers()">Load Users</button>
-  <button onclick="loadOrders()">Load Orders</button>
+<header>AWS DevOps Microservices Dashboard</header>
 
-  <pre id="result">System Ready...</pre>
+<div class="dashboard">
 
-  <script src="../src/app.js"></script>
+    <div class="card">
+        <div class="service-name">User Service</div>
+        <div class="status running">Status: Running</div>
+        <button onclick="alert('Fetching Users...')">View Logs</button>
+    </div>
+
+    <div class="card">
+        <div class="service-name">Order Service</div>
+        <div class="status running">Status: Running</div>
+        <button onclick="alert('Fetching Orders...')">View Logs</button>
+    </div>
+
+    <div class="card">
+        <div class="service-name">Payment Service</div>
+        <div class="status degraded">Status: Degraded</div>
+        <button onclick="alert('Checking Payments...')">Check Health</button>
+    </div>
+
+    <div class="card">
+        <div class="service-name">Notification Service</div>
+        <div class="status running">Status: Running</div>
+        <button onclick="alert('Sending Test Notification...')">Test</button>
+    </div>
+
+    <div class="card">
+        <div class="service-name">Inventory Service</div>
+        <div class="status down">Status: Down</div>
+        <button onclick="alert('Restarting Inventory...')">Restart</button>
+    </div>
+
+    <div class="card">
+        <div class="service-name">Auth Service</div>
+        <div class="status running">Status: Running</div>
+        <button onclick="alert('Validating Tokens...')">Validate</button>
+    </div>
+
+</div>
+
+<footer>© 2026 DevOps Monitoring Dashboard | Built for AWS Microservices</footer>
+
 </body>
 </html>
