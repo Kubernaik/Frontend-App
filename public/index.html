@@ -1,141 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AWS DevOps Fronted Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWS Microservices App</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(-45deg, #0F172A, #1E293B, #111827, #0F2027);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: #F1F5F9;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-header {
-    padding: 20px;
-    background: rgba(17, 24, 39, 0.9);
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    color: #FF9900;
-    border-bottom: 2px solid #334155;
-}
-
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px;
-}
-
-.card {
-    background: rgba(30, 41, 59, 0.9);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px #FF9900;
-}
-
-.service-name {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.status {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.running { color: #22C55E; }
-.degraded { color: #FACC15; }
-.down { color: #EF4444; }
-
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    background-color: #232F3E;
-    color: white;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: #FF9900;
-    color: #111827;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #94A3B8;
-    border-top: 1px solid #334155;
-}
-</style>
+  <!-- Prevent favicon 404 error -->
+  <link rel="icon" href="data:,">
 </head>
 
 <body>
 
-<header>AWS DevOps Fronted Project</header>
+  <h1>AWS DevOps Microservices Project By Nexgen Team</h1>
 
-<div class="dashboard">
+  <hr/>
 
-    <div class="card">
-        <div class="service-name">User Service</div>
-        <div class="status running">Status: Running</div>
-        <button onclick="alert('Fetching Users...')">View Logs</button>
-    </div>
+  <h2>Register</h2>
+  <input type="text" id="regName" placeholder="Name" /><br/><br/>
+  <input type="email" id="regEmail" placeholder="Email" /><br/><br/>
+  <input type="password" id="regPassword" placeholder="Password" /><br/><br/>
+  <button id="registerBtn">Register</button>
 
-    <div class="card">
-        <div class="service-name">Order Service</div>
-        <div class="status running">Status: Running</div>
-        <button onclick="alert('Fetching Orders...')">View Logs</button>
-    </div>
+  <hr/>
 
-    <div class="card">
-        <div class="service-name">Payment Service</div>
-        <div class="status degraded">Status: Degraded</div>
-        <button onclick="alert('Checking Payments...')">Check Health</button>
-    </div>
+  <h2>Login</h2>
+  <input type="email" id="loginEmail" placeholder="Email" /><br/><br/>
+  <input type="password" id="loginPassword" placeholder="Password" /><br/><br/>
+  <button id="loginBtn">Login</button>
 
-    <div class="card">
-        <div class="service-name">Notification Service</div>
-        <div class="status running">Status: Running</div>
-        <button onclick="alert('Sending Test Notification...')">Test</button>
-    </div>
+  <hr/>
 
-    <div class="card">
-        <div class="service-name">Inventory Service</div>
-        <div class="status down">Status: Down</div>
-        <button onclick="alert('Restarting Inventory...')">Restart</button>
-    </div>
+  <h2>Other Services</h2>
+  <button id="usersBtn">Load Users</button>
+  <button id="ordersBtn">Load Orders</button>
 
-    <div class="card">
-        <div class="service-name">Auth Service</div>
-        <div class="status running">Status: Running</div>
-        <button onclick="alert('Validating Tokens...')">Validate</button>
-    </div>
+  <hr/>
 
-</div>
+  <pre id="result"></pre>
 
-<footer>© 2026 DevOps Monitoring Dashboard | Built for AWS Microservices</footer>
+  <!-- Load JS at bottom -->
+  <script src="app.js"></script>
 
 </body>
 </html>
